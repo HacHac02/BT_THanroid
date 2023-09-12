@@ -1,55 +1,30 @@
-//ssassssssssss
-console.log("Challenge 1")
 var data=[{
-    Mark:{height: 1.69, weight:78},
-    John:{height: 1.95, weight:92}
+    'full name':'Mark Miller',
+    mass:78,
+    height:1.69 
 },
 {
-    Mark:{height: 1.88, weight:95},
-    John:{height: 1.76, weight:85}
+    'full name':'John Smith',
+    mass:92,
+    height:1.95
 }];
 
-function calculate(weight,height){
-    return weight/(height*height)
+function calcBMI(value){
+    return value.mass/(value.height*value.height)
 }
 
 var result= data.map((value)=>{
-    var bmiMark=calculate(value.Mark.weight,value.Mark.height);
-    var bmiJohn=calculate(value.John.weight,value.John.height);
-    value.Mark.bmi=bmiMark;
-    value.John.bmi=bmiJohn;
-    return value;
+    value.BMI = calcBMI(value)
+    return value
 })
 
+console.log(result)
 
-result.forEach((value,index)=>{
-    console.log(`Data ${index+1}:`)
-    console.log('Mark\'s BMI: '+value.Mark.bmi)
-    console.log('Join\'s BMI: '+value.John.bmi)
-})
+var high
+var low
+data[0].BMI > data[1].BMI ? (high = 0,low = 1): (high = 1,low = 0)
 
-
-markHigherBMIs = result.map((value,index)=>{
-   return value.Mark.bmi> value.John.bmi? true :false 
-})
-
-console.log('----------')
-console.log("Challenge 2")
-markHigherBMIs.forEach((value,index)=>{
-    var mess =  value ? 'Mark\'s BMI is higher than John\'s!' : "John's BMI is higher than Mark's!"
-    console.log(`Data ${index+1}: ${value} (${mess})`)
-})
-
-console.log("----------")
-markHigherBMIs.forEach((value,index)=>{
-    MarkBMI = result[index].Mark.bmi.toFixed(2)
-    JoinBMI = result[index].John.bmi.toFixed(2)
-    var mess =  value ?
-        `Mark's BMI (${MarkBMI}) is higher than John's (${JoinBMI})!` :
-        `John's BMI (${JoinBMI}) is higher than Mark's (${MarkBMI})!`
-    console.log(`Data ${index+1}: ${mess}`)
-})
-
+console.log(`${data[high]["full name"]}'s BMI (${data[high].BMI.toFixed(2)}) is higher than ${data[low]["full name"]}'s (${data[low].BMI.toFixed(2)})`)
 
 
 
