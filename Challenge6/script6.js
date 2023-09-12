@@ -1,13 +1,10 @@
-
-
 // 1. Write a function 'calcTip' 
-function calcTip(value) {
-    return value >= 50 && value <= 300 ? value * 0.15 : value * 0.2
+function calcTip(valueBill) {
+    return valueBill >= 50 && valueBill <= 300 ? valueBill * 0.15 : valueBill * 0.2
 }
 
 // Test the function using a bill value of 100
 console.log("Test the function using a bill value of 100: " + calcTip(100))
-
 
 //2. Test data: 125, 555 and 44
 var bills = [275, 40, 430]
