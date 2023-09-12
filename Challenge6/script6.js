@@ -23,7 +23,7 @@ var total = []
 for(let index in bills)
     total.push(bills[index] + tips[index])
 
-console.log("Array total: " + total)
+console.log("Array total:  " + total)
 
 
 
